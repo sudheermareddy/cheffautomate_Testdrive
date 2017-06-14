@@ -29,13 +29,16 @@
                     "vmSize": "[parameters('computeSettings').virtualMachineSize]"
                 },
                 "storageProfile": {
-                    "imageReference": {
-                        "id": "[concat('/subscriptions/',parameters('computeSettings').customImageSubscription,'/resourceGroups/',parameters('computeSettings').customImageRG,'/providers/Microsoft.Compute/images/windowsvm-image-20170611231945')]"
+                   "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-R2-Datacenter",
+                        "version": "latest"
                     },
                     "osDisk": {
                         "createOption": "fromImage",
                         "managedDisk": {
-                            "storageAccountType": "[parameters('computeSettings').storageAccountType]"
+                            "storageAccountType": "Standard_LRS"
                         }
                     },
                     "dataDisks": []
