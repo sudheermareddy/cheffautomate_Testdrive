@@ -16,11 +16,6 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "[parameters('computeSettings').computeApiVersion]",
             "location": "[parameters('computeSettings').location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('computeSettings').chefAutoVmName)]",
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('computeSettings').chefAutoVmName,'/extensions/automate_setup')]",
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('computeSettings').chefAutoVmName,'/extensions/chefupgrade_setup')]"
-            ],
             "properties": {
                 "osProfile": {
                     "computerName": "[parameters('computeSettings').wsVmName]",
